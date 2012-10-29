@@ -1,0 +1,4 @@
+<h1>Presença marcada</h1>
+<p><%= @attendance.name %></p>
+<p><%= @attendance.created_at.localtime.strftime('%d-%m-%Y às %H:%M:%S"') %></p>
+<%= link_to "<< Voltar para a lista de presenças", attendances_path %>

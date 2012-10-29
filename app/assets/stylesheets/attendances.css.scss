@@ -1,0 +1,195 @@
+// Place all the styles related to the attendances controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/** Font Face **/
+@font-face {
+ font-family: MyCustomFont;
+ src: url("fonts/Comfortaa_Thin.eot") /* EOT file for IE */
+}
+@font-face {
+ font-family: MyCustomFont;
+ src: url("fonts/Comfortaa_Thin.ttf") /* TTF file for CSS3 browsers */
+}
+
+/** Raso Team Landing Page **/
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFF;	
+	font-family: Verdana;
+	color: #828282;
+}
+
+div.header a {
+	display: block;
+	background-image: image-url("logo.png");
+	height: 196px;
+	background-position-x: 50%;
+	background-repeat: no-repeat;	
+}
+
+div.social {
+	background-color: #60add0;
+	min-height: 60px;
+	text-align: right;
+}
+
+div.social ul {
+	margin: 0px;
+	display: inline-block;
+	margin-right: 60px;
+	padding-top: 5px;
+	list-style: none;	
+}
+
+div.social ul li {
+	width: 48px;
+	height: 48px;
+	float: left;
+	margin-left: 10px;
+}
+
+div.social ul li a.facebook {
+	display: block;
+	float: left;
+	width: 48px;
+	height: 48px;
+	background-image: image-url("facebook.png");
+}
+div.social ul li a.twitter {
+	display: block;
+	float: left;
+	width: 48px;
+	height: 48px;
+	background-image: image-url("twitter.png");
+}
+div.social ul li a.youtube {
+	display: block;
+	float: left;
+	width: 48px;
+	height: 48px;
+	background-image: image-url("youtube.png");
+}
+
+div.social ul li.last {
+	clear: both;
+	width: 0;
+	height: 0;
+}
+
+div.content {
+	padding: 30px;	
+	background-image: image-url("back.png");
+}
+
+div.content table td {
+	padding: 10px;	
+}
+
+div.content table td.bar {
+	padding: 0px;
+	margin: 0px;
+	background-color: #60add0;
+	width: 1px;
+}
+
+.button {
+	background-image: image-url("inbox.png");
+	vertical-align: top;
+	margin-left: 20px;
+	width: 76px;
+	height: 76px;
+	border: none;	
+}
+
+td.newsletter input.button_validate {
+	background-image: image-url("inbox.png");
+	vertical-align: top;
+	margin-left: 20px;
+	width: 76px;
+	height: 76px;
+	border: none;	
+}
+
+
+td.text span.fst {
+	font-family: MyCustomFont, Verdana;
+	display: block;
+	text-transform: lowercase;
+	color: #60add0;
+	font-size: 40px;
+}
+
+td.text span.snd {
+	font-family: MyCustomFont, Verdana;
+	display: block;
+	text-transform: lowercase;
+	color: #60add0;
+	font-size: 70px;
+	margin-bottom: 40px;
+}
+
+td.newsletter {
+	width: 50%;
+	vertical-align: top;
+}
+
+td.newsletter span {
+	font-size: 12px;
+	padding: 50px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	display: block;	
+}
+
+
+td.newsletter input {
+	border: solid 1px #CCC;
+	height: 72px;
+	width: 300px;
+	font-size: 30px;
+	text-align: center;
+}
+
+td.table tr.header{
+	background-color: #60add0;
+	border: solid 1px #60add0;
+	height: 30px;
+	color: black;
+	border-collapse: collapse;
+}
+
+td.table table.presence{
+	border-collapse: collapse;
+	width: 450px;
+}
+
+td.table tr td{
+	border: solid 1px black;
+	background-color: white;
+	height: 20px;
+}
+
+td.table tr.today{
+	color: #60add0;
+}
+
+div.content table td.table {
+	padding-left: 100px;	
+}
+
+div.separator {
+	height: 10px;
+	background-color: #60add0;
+}
+
+div.footer {
+	text-align: center;
+	font-size: 12px;
+	padding: 10px;
+}
+
+/** General classes **/
+.clear {
+	clear: both;	
+}
