@@ -1,10 +1,20 @@
 <div class="header">
-  <a href="" alt="Raso Human Resources Management System"></a>
+
+  <div class="admin">
+  <%=
+   link_to_if(session["admin"] == nil || session["admin"] == false, "Login", { :controller => "admin", :action => "login" }) do
+     link_to('Admin', { :controller => "admin", :action => "index"})
+   end
+  %>
+  </div>
+
+  <a class="logo" href="" alt="Raso Human Resources Management System"></a>
+
 </div>
 
 <div class="social">
       <ul>
-        <li><a href="#" class="facebook"></a></li>
+        <li><a href="http://www.facebook.com/rasohr?fref=ts" class="facebook"></a></li>
         <li><a href="#" class="twitter"></a></li>
         <li><a href="#" class="youtube"></a></li>
         <li><a href="#" class="last"></a></li>
@@ -20,7 +30,7 @@
       <td class="newsletter">
         <span>Marca a tua presença inserindo o teu nome e a password</span>
 
-        <%= form_for(@attendance) do |f| %>
+        <%= form_for(@attendance, remote: true) do |f| %>
 
         <% if @attendance.errors.any? %>
           <div class="error_messages">
@@ -34,16 +44,18 @@
           </div>
         <% end %>
 
-          <p>
             <%= f.text_field :name, :placeholder => "Nome" %>
-          </p>
-          <p>
-            <%= f.text_field :password, :placeholder => "Password" %>
+
+            <%= f.password_field :password, :placeholder => "Password" %>
 
             <%= f.submit "", :class => "button_validate" %>
-          </p>
+
+            <div style="clear: both" ></div>
 
         <% end %>
+
+        <span id="show_password">Mostrar Password <input type="checkbox" id="show_password" onchange="document.getElementById('attendance_password').type = this.checked ? 'text' : 'password'"></span>
+        
 
       </td>
       
@@ -69,7 +81,7 @@
                 <%=  attendance.name %>
               </td>
               <td>
-                <%=  attendance.created_at.localtime.strftime('%d-%m-%Y às %H:%M:%S"') %>
+                <%=  attendance.created_at.localtime.strftime('%d-%m-%Y às %H:%M:%S') %>
               </td>
             </tr>
           <% end %>

@@ -1,7 +1,7 @@
 class AttendancesController < ApplicationController
   
   def index
-  	@attendances = Attendance.order('id DESC').limit(30)
+  	@attendances = Attendance.order('id DESC').limit(20)
     @attendance = Attendance.new
   end
 
@@ -15,12 +15,17 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = Attendance.new(params[:attendance])
-    if @attendance.save
-      #redirect_to attendance_path(@attendance)
-      redirect_to root_path
-    else
-      @attendances = Attendance.order('id DESC').limit(30)
-      render 'index'
+    
+    respond_to do |format|
+
+      if @attendance.save
+        #redirect_to attendance_path(@attendance)
+        format.html { redirect_to root_path }
+      else
+        @attendances = Attendance.order('id DESC').limit(20)
+        format.html { render 'index' }
+      end
+      format.js
     end
   end
 

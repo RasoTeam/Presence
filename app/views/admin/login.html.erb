@@ -1,0 +1,52 @@
+<div class="header">
+
+  <div class="admin">
+	  <%= link_to root_path do %>
+	    Presenças
+	  <% end %>
+	</div>
+
+  <a class="logo" href="" alt="Raso Human Resources Management System"></a>
+</div>
+
+<div class="social">
+      <ul>
+        <li><a href="http://www.facebook.com/rasohr?fref=ts" class="facebook"></a></li>
+        <li><a href="#" class="twitter"></a></li>
+        <li><a href="#" class="youtube"></a></li>
+        <li><a href="#" class="last"></a></li>
+      </ul>
+</div>
+
+<div class="content">
+
+  <div id="login">
+    <span class="info">Efectue login inserindo o nome e a password</span>
+
+    <% if flash[:error] %>
+      <p><span class="login_error" style="color:red;">Login failed</span></p>
+    <% end %>
+
+    <%= form_for(@attendance=Attendance.new, :method => 'post' ,:url => {:action => "create_admin"}) do |f| %>
+
+      <p>
+        <%= f.text_field :name, :placeholder => "Nome", :required => true %>
+      </p>
+      <p>
+        <%= f.password_field :password, :placeholder => "Password", :required => true %>
+
+        <%= f.submit "Login", :class => "admin_validate" %>
+      </p>
+
+    <% end %>
+
+    <span>Mostrar Password <input type="checkbox" id="show_password" onchange="document.getElementById('attendance_password').type = this.checked ? 'text' : 'password'"></span>
+  </div>
+    
+</div>
+
+<div class="separator"></div>
+
+<div class="footer">
+      Copyright © 2012 Raso. Todos os direitos reservados. Desenvolvido por Raso Team.
+</div>

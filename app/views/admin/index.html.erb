@@ -1,0 +1,72 @@
+<div class="header">
+
+<div class="admin">
+  <%= link_to('/admin/logout') do %>
+      Logout
+    <% end %>
+    <%= link_to root_path do %>
+      Presenças
+    <% end %>
+  </div>
+
+  <a class="logo" href="" alt="Raso Human Resources Management System"></a>
+</div>
+
+<div class="social">
+      <ul>
+        <li><a href="http://www.facebook.com/rasohr?fref=ts" class="facebook"></a></li>
+        <li><a href="#" class="twitter"></a></li>
+        <li><a href="#" class="youtube"></a></li>
+        <li><a href="#" class="last"></a></li>
+      </ul>
+</div>
+
+<div class="content">
+
+<table>
+  <tbody>
+    <tr>
+
+      <td class="table">
+
+        <h1 style="text-align:center">Presentes</h1>
+
+        <table id="admin" class="presence">
+          <tr class="header">
+            <th>Nome</th>
+            <th>Password</th>
+            <th>Hora</th>
+          </tr>
+
+          <% @attendances.each do |attendance| %>
+            <% if (attendance.created_at > Date.today)%>
+            <tr class="today">
+            <% else %>
+            <tr>
+            <% end %>
+              <td>
+                <%=  attendance.name %>
+              </td>
+              <td>
+              	<%=  attendance.password %>
+              </td>
+              <td>
+                <%=  attendance.created_at.localtime.strftime('%d-%m-%Y às %H:%M:%S') %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<div class="separator"></div>
+
+<div class="footer">
+      Copyright © 2012 Raso. Todos os direitos reservados. Desenvolvido por Raso Team.
+</div>

@@ -1,0 +1,7 @@
+<% if @attendance.new_record? %> 
+	$('input#attendance_name, input#attendance_password').effect('shake', 'fast');
+<% else %> 
+	$('table.presence tr.header').after("<tr class='today'><td><%= escape_javascript(@attendance.name) %></td><td> <%=  escape_javascript(@attendance.created_at.localtime.strftime('%d-%m-%Y às %H:%M:%S')) %> </td></tr>");
+	$('table.presence tr').eq(1).effect('pulsate', 'fast');
+	$('form#new_attendance')[0].reset();
+<% end %>

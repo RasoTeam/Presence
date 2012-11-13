@@ -1,4 +1,14 @@
 Presence::Application.routes.draw do
+
+  get "admin/create_admin"
+  post "admin/create_admin"
+
+  get "admin/index"
+
+  get "admin/login"
+
+  get "admin/logout"
+
   root :to => 'attendances#index'
   resources :attendances
   # The priority is based upon order of creation:
